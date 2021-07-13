@@ -1,0 +1,29 @@
+.search {
+    width: 25%;
+    position: relative;
+}
+.search input {
+    font-size: 16px;
+    width: 92%;
+    padding: 10px 15px;
+    outline: none;
+    border: 1px solid rgb(224, 221, 221);
+
+    border-radius: 20px;
+}
+.search .search-loupe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(63, 137, 180);
+    position: absolute;
+    right: 40px;
+    bottom: 6px;
+}
+.search .search-loupe img {
+    width: 50%;
+}

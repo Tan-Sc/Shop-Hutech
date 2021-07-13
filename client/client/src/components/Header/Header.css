@@ -1,0 +1,138 @@
+header {
+    min-height: 70px;
+    height: 85px;
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    background: rgb(0 208 255);
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+header .logo {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+header .logo p {
+    position: relative;
+    bottom: 10px;
+    font-family: "Langar", cursive;
+    font-weight: 700;
+}
+header .logo img {
+    margin-top: 10px;
+    width: 65%;
+    position: relative;
+    left: 20px;
+}
+header ul.guest {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+header ul.guest li a {
+    font-size: 18px;
+    color: #000000;
+    font-weight: 500;
+}
+header ul.guest li a {
+    color: #000;
+    font-weight: 600;
+    transition: 0.4s;
+}
+/* header .search {
+    width: 25%;
+}
+header .search input {
+    font-size: 16px;
+    width: 80%;
+    padding: 10px 15px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #c8a9a9;
+    border-left: 1px solid;
+} */
+header .login-text {
+    font-size: 20px;
+    color: #000;
+    margin-right: 20px;
+}
+header img.user-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.user {
+    display: flex;
+    justify-content: space-evenly;
+}
+.user-content {
+    width: 200px;
+    position: relative;
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+}
+/*import ClientHeader*/
+.notify {
+    position: absolute;
+    right: 100px;
+    cursor: pointer;
+}
+.notify img {
+    width: 40px;
+    height: 40px;
+}
+.notify div.on {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: -4px;
+    left: 25px;
+    padding: 0px 5px;
+    background: red;
+    border-radius: 50%;
+    font-weight: bold;
+}
+.notify:hover img {
+    animation-name: example;
+    animation-duration: 0.6s;
+    animation-iteration-count: 10;
+}
+.notify .create-address {
+    display: none !important;
+    transition: 0.6s;
+}
+.notify .create-address.show p {
+    position: absolute;
+    width: 245px;
+    right: -94px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    top: 50px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid black;
+    transition: 0.6s;
+}
+.notify .create-address.show {
+    display: block !important;
+}
+@keyframes example {
+    0% {
+    }
+    50% {
+        transform: rotate(15deg);
+    }
+    100% {
+        transform: rotate(-15deg);
+    }
+}
+@import "../ClientHeader/ClientHeader.css";

@@ -1,0 +1,59 @@
+.bill {
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+    padding-bottom: 400px;
+}
+.bill .trans-history {
+    width: 80%;
+    margin: auto;
+}
+.bill .trans-history h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.bill .trans-history th,
+.bill .trans-history td {
+    height: 50px;
+    text-align: center;
+}
+.detail-order {
+    margin-top: 50px;
+    padding-bottom: 400px;
+}
+.detail-order .box-infor {
+    width: 80%;
+    padding: 20px 0 20px 0;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 0 0 3px 2px #ddd;
+}
+.detail-order .box-infor .infor-user,
+.detail-order .box-infor .infor-products {
+    width: 90%;
+    margin: auto;
+}
+table {
+    width: 80%;
+    margin: auto;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    background: white;
+}
+table td,
+table th {
+    text-align: center;
+    height: 40px;
+}
+tbody tr td.img img {
+    width: 70px;
+    height: 60px;
+}
+.detail-order h3 {
+    width: 80%;
+    margin: auto;
+}
+.ex-bill img {
+    width: 20px;
+}

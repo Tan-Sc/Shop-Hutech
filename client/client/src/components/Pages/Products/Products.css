@@ -1,0 +1,84 @@
+.no-care {
+    background: rgb(245 245 245);
+    width: 80%;
+    padding-bottom: 400px;
+    padding-top: 25px;
+}
+.care {
+    padding-top: 25px;
+    background: rgb(245 245 245);
+    padding-bottom: 400px;
+}
+.products {
+    width: 76%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 280px);
+    grid-column-gap: 2px;
+}
+.filter-n-sort {
+    width: 75%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.care .filter-sort {
+    width: 65% !important;
+    margin-left: 15% !important;
+}
+.filter-n-sort .create {
+    width: 20%;
+}
+.filter-n-sort .create a {
+    font-weight: bold;
+    padding: 15px 25px;
+    background: #61e561;
+    color: navy;
+}
+.filter-n-sort .filter-sort {
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+.filter-n-sort .filter-sort .filter-menu,
+.filter-n-sort .filter-sort .sort-menu {
+    width: 30%;
+}
+.filter-n-sort .filter-sort .search {
+    width: 40%;
+}
+.filter-n-sort .filter-sort .search input {
+    height: 35px;
+}
+.filter-n-sort .filter-sort .search .search-loupe {
+    width: 25px;
+    height: 25px;
+    right: 30px;
+}
+.filter-n-sort .filter-sort .search img {
+    width: 40%;
+}
+.filter-n-sort .filter-menu select,
+.filter-n-sort .sort-menu select {
+    outline: none;
+    width: 150px;
+    padding-left: 20px;
+    height: 30px;
+    border: 1px solid rgb(223, 222, 222);
+}
+.filter-n-sort .filter-menu span,
+.filter-n-sort .sort-menu span {
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+/*Admin*/
+.products-admin {
+    width: 76%;
+    margin: auto;
+}
+/*Products-Item*/
+@import url("../Item/ProductItem.css");
+/*Render Products in Admin*/
+@import url("../../Admin/AdminProducts/AdminProducts.css");

@@ -1,0 +1,140 @@
+.login-page {
+    min-height: 700px;
+    display: flex;
+    background-color: #fff;
+    justify-content: center;
+    padding-bottom: 500px;
+}
+.login-page form {
+    width: 500px;
+    height: 500px;
+    box-shadow: 0 0 10px 3px rgb(223, 208, 208);
+    padding: 30px 50px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: rgb(252, 252, 252);
+    position: relative;
+    top: 100px;
+}
+.login-page form label {
+    font-weight: bold;
+    font-size: 15px;
+}
+.login-page form h2 {
+    font-size: 40px;
+    margin-bottom: 50px;
+    font-family: "Langar", cursive;
+}
+.login-page form input {
+    display: block;
+    width: 95%;
+    outline: none;
+    height: 40px;
+    padding: 0 0 5px 15px;
+    font-size: 20px;
+    margin: 12px 0;
+    margin-right: 20px;
+    border-radius: 40px;
+    border: 2px solid #888;
+}
+input::placeholder {
+    font-size: 15px;
+}
+.login-page form .row-auth {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.row-auth button {
+    font-size: 15px;
+    outline: none;
+    background: #8bd7cc;
+    padding: 10px 30px;
+    border-radius: 40px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.row-auth button.register {
+    width: 100%;
+}
+.row-auth button:active {
+    background: #2e8a76;
+}
+/*Forgot Password*/
+.forgot {
+    width: 100%;
+    margin-top: 60px;
+}
+.forgot h2 {
+    text-align: center;
+    font-family: cursive;
+    font-size: 50px;
+}
+.forgot form {
+    width: 80%;
+    margin: auto;
+}
+.forgot form label {
+    font-size: 20px;
+}
+.forgot form input {
+    width: 300px;
+    margin-left: 10px;
+    height: 35px;
+    padding: 10px 0 5px 15px;
+    border-radius: 20px;
+    border: 1px solid;
+}
+.forgot form .row-auth {
+    width: 150px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/*reset password*/
+.reset-password {
+    width: 100%;
+    margin-top: 60px;
+}
+.reset-password h2 {
+    text-align: center;
+    font-family: cursive;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.reset-password form {
+    width: 80%;
+    margin: auto;
+}
+.reset-password form .box-reset label {
+    width: 25%;
+    font-size: 15px;
+}
+.reset-password form .box-reset {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    width: 45%;
+}
+.reset-password form label {
+    font-size: 20px;
+}
+.reset-password form input {
+    width: 300px;
+    margin-left: 10px;
+    height: 35px;
+    padding: 10px 0 5px 15px;
+    border-radius: 20px;
+    border: 1px solid;
+}
+.reset-password form .row-auth {
+    width: 250px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.reset-password form .row-auth button {
+    width: ;
+}

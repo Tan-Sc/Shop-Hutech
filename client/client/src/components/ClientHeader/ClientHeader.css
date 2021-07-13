@@ -1,0 +1,80 @@
+.client {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+.client a {
+    font-size: 25px;
+    font-family: initial;
+    color: #252424c0;
+    text-decoration: none;
+    font-weight: 500;
+}
+.cart-icon {
+    width: 5%;
+}
+.cart-icon img {
+    width: 40%;
+    height: 40%;
+}
+.client a:hover {
+    font-size: 20px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.4s;
+}
+.user {
+    display: flex;
+    align-items: center;
+    width: 15%;
+}
+.user img {
+    width: 20%;
+}
+.user .user-content {
+    width: 80%;
+}
+.client a:active {
+    font-size: 18px;
+    color: #000000;
+    font-weight: 500;
+    transition: 0.4s;
+}
+.form-action {
+    position: absolute;
+    right: 51px;
+    width: 180px;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+.form-action li {
+    border-bottom: 1px solid;
+    padding: 10px 0 10px;
+}
+.form-action li a {
+    font-size: 15px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+    margin-left: 20px;
+}
+.form-action ul li:hover {
+    background: rgba(106, 200, 255, 0.74);
+    transition: 0.4s;
+    font-weight: lighter;
+    z-index: 1;
+}
+.user:hover .form-action {
+    margin-top: 5px;
+    box-shadow: 0px 4px 10px rgba(31, 31, 31, 0.15);
+    -webkit-box-shadow: 0px 4px 10px rgba(31, 31, 31, 0.15);
+    background-color: #fff;
+    min-height: 10px;
+    border-radius: 10px;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.4s;
+    z-index: 1;
+}

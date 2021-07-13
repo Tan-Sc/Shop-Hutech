@@ -1,0 +1,19 @@
+.pagination {
+    justify-content: center;
+    margin-top: 20px;
+}
+.pagination button {
+    background: #d1ffff;
+    padding: 10px 20px;
+    border: 1px solid;
+    outline: none;
+}
+.pagination button:hover {
+    background: #9fffe0;
+}
+.pagination button:disabled,
+.pagination button[disabled] {
+    border: 1px solid #141414;
+    background-color: #cecccc86;
+    color: #1d1d1d;
+}

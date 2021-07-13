@@ -1,0 +1,54 @@
+.products-admin table {
+    width: 100%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+.products-admin table td,
+.products-admin table th {
+    text-transform: capitalize;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #dddddd;
+}
+.products-admin table thead {
+    width: 100%;
+    background-color: #9fefef;
+}
+.products-admin table thead th {
+    border: none;
+}
+.products-admin table thead tr {
+    height: 50px;
+}
+.products-admin table tbody {
+    width: 100%;
+}
+.products-admin tbody tr {
+    width: 100%;
+}
+.products-admin tbody tr td.images {
+    width: 10%;
+}
+.products-admin tbody tr td.title {
+    width: 38%;
+}
+.products-admin tbody tr td.category {
+    width: 12%;
+}
+.products-admin tbody tr td.prices {
+    width: 10%;
+}
+.products-admin tbody tr td.quantity {
+    width: 8%;
+}
+.products-admin tbody tr td.sold {
+    width: 8%;
+}
+.products-admin tbody tr td.update-or-drop {
+    width: 14%;
+}
+.products-admin tbody tr td.images img {
+    width: 55px;
+    height: 50px;
+}

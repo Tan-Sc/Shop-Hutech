@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.App {
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  position: relative;
+}
+a:hover {
+  text-decoration: none !important;
+}
+a {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+@import "bootstrap/dist/css/bootstrap.min.css";
+/*Header*/
+@import url("./components/Header/Header.css");
+/*Products*/
+@import url("./components/Pages/Products/Products.css");
+/*DetailProduct*/
+@import url("./components/Pages/DetailProduct/DetailProduct.css");
+/*Cart*/
+@import url("./components/Pages/Cart/Cart.css");
+/*Auth*/
+@import url("./components/Pages/Auth/Auth.css");
+/*History*/
+@import url("./components/Pages/TransitionHistory/History.css");
+/*Categories*/
+@import url("./components/Pages/Categories/Categries.css");
+/*Create Product*/
+@import url("./components/Pages/Admin/CreateProduct/CreateProduct.css");
+/*Search*/
+@import url("./components/Search/Search.css");
+/*Address*/
+@import url("./components/Pages/CreateAddress/CreateAddress.css");
+/*Users*/
+@import url("./components/Admin/AdminUsers/AdminUser.css");

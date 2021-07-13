@@ -1,0 +1,57 @@
+.profile {
+    width: 50px;
+    margin: 0;
+}
+.profile img {
+    width: 80%;
+    border-radius: 50%;
+}
+.nav-item.icon {
+    width: 50px;
+    padding: 10px;
+    margin-right: 20px;
+}
+.left-nav {
+    display: block;
+    width: 16%;
+    background-color: #2a3f54;
+    color: #fff;
+    float: left;
+    height: auto;
+    overflow: auto;
+    z-index: 4;
+}
+.nav-title {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #050030;
+}
+.nav-title .logo {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    margin: 0;
+    background-color: #fff;
+}
+
+.general .item {
+    padding: 10px 10px;
+    min-width: 30px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #777;
+}
+.general .item:hover {
+    background-color: #51779d;
+}
+.general .item img {
+    width: 30px;
+    margin-right: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+}
