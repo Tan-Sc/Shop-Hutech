@@ -116,7 +116,7 @@ function Pages() {
                     </Route>
                     : <Login />} */}
                 <Login />
-            </Route>
+            </Route>       
             <Route path='/register'>
                 {!isAdmin ? <Register /> : <NotFoundPage />}
             </Route>

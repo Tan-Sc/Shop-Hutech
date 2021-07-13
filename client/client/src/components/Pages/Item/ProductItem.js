@@ -27,7 +27,7 @@ function ProductItem({ product, isAdmin }) {
                     <p>{product.description}</p>
                     <span>Price: {product.prices}$</span>
                 </div>
-                Đã Hết Hàng
+                SOLD
                 <p>solded: {product.sold}</p>
             </div >
         );
