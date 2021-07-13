@@ -50,8 +50,7 @@ function AdminUser() {
             getAllUser();
         }
     }, [token, callback])
-    // console.log(users, 'xxx');
-    // if (users.length === 0) return null
+
     return (
         <div className='all-users'>
             <h2 className='title'>Users Management</h2>

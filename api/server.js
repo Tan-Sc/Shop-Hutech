@@ -28,9 +28,6 @@ app.use('/checkout', checkout);
 app.use('/payment', payment);
 
 
-
-
-
 //connect to mongoDB
 mongoose
     .connect(process.env.URL_MONGODB, {

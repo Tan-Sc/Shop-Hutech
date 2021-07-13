@@ -18,6 +18,7 @@ module.exports.getCheckout = async (req, res) => {
         return res.status(500).json({ msg: error.message })
     }
 }
+
 module.exports.createCheckout = async (req, res) => {
     // console.log(req.body, "body");
     const user = await User.findById(req.user.id).select('name email');
@@ -34,7 +35,7 @@ module.exports.createCheckout = async (req, res) => {
         const x = await Product.findOne({ _id: item._id });
         await Product.findOneAndUpdate({ _id: item._id }, {
             sold: x.sold + item.count,
-            quantity: x.quantity - item.count,
+            // quantity: x.quantity - item.count,
         });
     })
     await newCheckout.save();
@@ -43,7 +44,8 @@ module.exports.createCheckout = async (req, res) => {
 module.exports.updateCheckout = async (req, res) => {
     try {
         const x = await Checkout.findById({ _id: req.params.id });
-        await Checkout.findByIdAndUpdate({ _id: req.params.id }, { status: req.body.status });
+        await Checkout.findByIdAndUpdate({ _id: req.params.id }, { status: req.body.status});
+
         const sendMail = {
             to: x.email,
             from: process.env.MAIL,
@@ -57,6 +59,7 @@ module.exports.updateCheckout = async (req, res) => {
         return res.status(500).json({ msg: error })
     }
 }
+
 module.exports.deleteCheckout = async (req, res) => {
     // console.log(req.params);
     // console.log('kkkkkkkkkkk');
@@ -68,7 +71,7 @@ module.exports.deleteCheckout = async (req, res) => {
             const y = await Product.findOne({ _id: item._id });
             await Product.findOneAndUpdate({ _id: item._id }, {
                 sold: y.sold - item.count,
-                quantity: y.quantity + item.count,
+                // quantity: y.quantity + item.count,
             });
         })
         await Checkout.findByIdAndDelete({ _id: req.params.id });

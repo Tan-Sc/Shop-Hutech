@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+// import loginGoogle from '../../Google/loginGoogle';
 // import Loadding from '../../Loadding/Loadding';
 
 function Login() {

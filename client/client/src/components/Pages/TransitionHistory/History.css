@@ -57,3 +57,8 @@ tbody tr td.img img {
 .ex-bill img {
     width: 20px;
 }
+
+.imagecheked{
+    width: 30px;
+    color: green;
+}

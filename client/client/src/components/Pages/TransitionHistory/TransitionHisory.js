@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { GlobalState } from '../../GlobalState';
@@ -6,6 +6,7 @@ import { GlobalState } from '../../GlobalState';
 import exportbill from '../../../images/export.svg';
 import Loadding from '../../Loadding/Loadding';
 import Pagination from '../../Pagination/Pagination'
+import imagecheck from '../../../images/checked.svg'
 
 function TransitionHisory() {
     const state = useContext(GlobalState)
@@ -27,19 +28,33 @@ function TransitionHisory() {
     //         alert(error.message)
     //     }
     // }
+
     const handlePageChange = (page) => {
         setPage(page)
     }
+    // kiem tra bill -> confirmed
     const checkOrder = async (item) => {
         try {
             console.log(item._id);
-            await axios.post(`/checkout/${item._id}`, { status: true }, {
+            await axios.post(`/checkout/${item._id}`, { status: 1 }, {
                 headers: { Authorization: token }
             })
             setCallback(!callback)
         } catch (error) {
             alert(error.message)
         }
+    }
+    const checkPaid = async (item) =>{
+
+        try {
+                    console.log(item._id);
+                    await axios.post(`/checkout/${item._id}`, { status: 2 }, {
+                        headers: { Authorization: token }
+                    })
+                    setCallback(!callback)
+                } catch (error) {
+                    alert(error.message)
+                }
     }
     const dropOrderChange = async (item) => {
         if (window.confirm("Do you want cancel this order")) {
@@ -74,6 +89,7 @@ function TransitionHisory() {
                             <th>View Detail</th>
                             {isAdmin ? <th>Payments</th> : <th>Protocol</th>}
                             {isAdmin ? <th>Export Bill</th> : null}
+                            {isAdmin ? <th>Paid</th>:null}
                         </tr>
                     </thead>
                     <tbody>
@@ -83,7 +99,8 @@ function TransitionHisory() {
                                     <tr key={item._id}>
                                         <td className='id-trans'>{item._id}</td>
                                         <td className='dateOrder'>{new Date(item.createdAt).toLocaleDateString()}</td>
-                                        <td>{item.status ? 'Confirmed' : 'Are Confirming'}</td>
+                                        {/* <td>{item.status ? 'Confirmed' : 'Are Confirming'}</td> */}
+                                        <td>{item.status === 1 ? 'confirmed' : (item.status=== 2 ? 'paid': 'confirming')}</td>
                                         <td className='view-detail'>
                                             <Link to={`/history/${item._id}`}>View Detail</Link>
                                         </td>
@@ -92,6 +109,7 @@ function TransitionHisory() {
                                                 <button style={{ "background": "rgb(255 0 0 / 72%)", "padding": "5px 20px" }} onClick={() => dropOrderChange(item)}>Cancel</button>
                                         }</td>}
                                         {isAdmin ? <td><Link to={`/bill/${item._id}`} className='ex-bill'><img onClick={() => checkOrder(item)} src={exportbill} alt="exportbillx" /></Link></td> : null}
+                                        {isAdmin && <td onClick={()=>checkPaid(item)}> {item.status===2 ? <img className="imagecheked" src ={imagecheck}></img>:<span>x</span>} </td> }
                                     </tr>
                                 )
                             })

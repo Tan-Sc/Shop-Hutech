@@ -22,8 +22,8 @@ const checkoutSchema = new mongoose.Schema({
         default: []
     },
     status: {
-        type: Boolean,
-        default: false
+        type: Number,
+        default: 0
     },
     total: {
         type: Number,
