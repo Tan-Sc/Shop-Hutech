@@ -48,7 +48,7 @@ function Checkout() {
             setCart([]);
             addToCart([]);
             setCallback(!callback)
-            alert('You have successfully ordered');
+            // alert('You have successfully ordered');
             // history.push('/products')
             window.location.href = '/products'
         } catch (error) {
@@ -157,9 +157,9 @@ function Checkout() {
                         </tr>
                     </tbody>
                 </table>
-                <div className='total x'>
+                {/* <div className='total x'>
                     <input type="text" placeholder="Your Discount Code" className="discount" />
-                </div >
+                </div > */}
                 <div className='total'>
                     <h3>Grand Total: ${total}</h3>
                     <div className='choose-payment'>

@@ -14,6 +14,7 @@ function UserAPI(token) {
     const [users, setUsers] = useState([]);
     const [user, setUser] = useState({})
     const [page, setPage] = useState(1)
+  
 
     useEffect(() => {
         // console.log(token, 'tk');
@@ -40,6 +41,7 @@ function UserAPI(token) {
             getUser();
         }
     }, [token, callback])
+
     const addCart = async (product) => {
         if (!isLogged) {
             window.location.href = '/login';

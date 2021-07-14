@@ -44,6 +44,7 @@ function TransitionHisory() {
             alert(error.message)
         }
     }
+    /// trang thai paid
     const checkPaid = async (item) =>{
 
         try {
@@ -109,7 +110,7 @@ function TransitionHisory() {
                                                 <button style={{ "background": "rgb(255 0 0 / 72%)", "padding": "5px 20px" }} onClick={() => dropOrderChange(item)}>Cancel</button>
                                         }</td>}
                                         {isAdmin ? <td><Link to={`/bill/${item._id}`} className='ex-bill'><img onClick={() => checkOrder(item)} src={exportbill} alt="exportbillx" /></Link></td> : null}
-                                        {isAdmin && <td onClick={()=>checkPaid(item)}> {item.status===2 ? <img className="imagecheked" src ={imagecheck}></img>:<span>x</span>} </td> }
+                                        {isAdmin && <td  onClick={()=>checkPaid(item)}> {item.status===2 ? <img className="imagecheked" src ={imagecheck}></img>:<span>X</span>} </td> }
                                     </tr>
                                 )
                             })

@@ -1,6 +1,10 @@
 const router = require('express').Router()
 const userController = require('../controllers/user.controller');
 const auth = require('../middleware/auth.middleware');
+const nodemailer =  require('nodemailer');
+
+
+
 
 router.get('/users', auth.auth, auth.authAdmin, userController.getAllUser)
 router.get('/infor', auth.auth, userController.getUser);

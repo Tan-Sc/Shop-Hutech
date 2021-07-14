@@ -23,7 +23,7 @@ function ResetPassword() {
             history.push('/login')
             return alert(res.data.msg)
         } catch (error) {
-            console.log('llll');
+            console.log('err');
             return alert(error.response.data.msg);
         }
     }

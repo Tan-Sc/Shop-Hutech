@@ -15,6 +15,7 @@ module.exports.getPayment = async (req, res) => {
         res.status(500).json({ msg: error.message })
     }
 }
+
 module.exports.createPayment = async (req, res) => {
     try {
         console.log(req.body, 'body');
@@ -34,19 +35,20 @@ module.exports.createPayment = async (req, res) => {
             const x = await Product.findOne({ _id: item._id });
             await Product.findOneAndUpdate({ _id: item._id }, {
                 sold: x.sold + item.count,
-                quantity: x.quantity - item.count,
+                // quantity: x.quantity - item.count,
             });
         })
         await newPayment.save()
         res.json({ msg: "payment success" });
     } catch (error) {
-        res.status(500).json('loi')
+        res.status(500).json('err')
     }
 }
 class APIfeature {
     constructor(query, queryString) {
         this.query = query;
         this.queryString = queryString;
+        
     }
     filtering() {
         const queryObj = { ...this.queryString } //queryString = req.query
@@ -76,6 +78,7 @@ class APIfeature {
         }
         return this;
     }
+
     paginating() {
         const page = this.queryString.page * 1 || 1;
         const limit = this.queryString.limit * 1 || 8;
