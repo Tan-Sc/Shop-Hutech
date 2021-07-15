@@ -30,8 +30,8 @@ function Login() {
     const [showlogoutButton, setShowlogoutButton] = useState(false);
     const onLoginSuccess = (res) => {
          console.log('Login Success:', res.profileObj);
-        //  setShowloginButton(false);
-        //  setShowlogoutButton(true);
+          setShowloginButton(false);
+          setShowlogoutButton(true);
     };
 
     const onLoginFailure = (res) => {
@@ -41,8 +41,8 @@ function Login() {
     const onSignoutSuccess = () => {
         alert("You have been logged out successfully");
         console.clear();
-        // setShowloginButton(true);
-        // setShowlogoutButton(false);
+         setShowloginButton(true);
+         setShowlogoutButton(false);
     };
  
     return (
@@ -53,7 +53,7 @@ function Login() {
                 <input id="email" type='email' name='email' required placeholder='Enter Your Email...' value={user.email} onChange={onChangeInput} />
                 <label name="password" htmlFor="password">Password:</label>
                 <input id="password" type='password' name='password' required placeholder='Enter Your Password...' value={user.password} onChange={onChangeInput} />
-        <div>
+        {/* <div>
             { showloginButton ?
                 <GoogleLogin
                     clientId={clientId}
@@ -72,7 +72,7 @@ function Login() {
                 >
                 </GoogleLogout> : null
             }
-        </div>
+        </div> */}
                 <div className='row-auth'>
                     <button type='submit'>Login</button>
                     <Link to='/register'><button className="register">Register</button></Link>

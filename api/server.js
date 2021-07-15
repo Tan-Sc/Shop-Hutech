@@ -13,9 +13,9 @@ const checkout = require('./routers/checkout.route')
 const payment = require('./routers/payment.route')
 
 const app = express();
+app.use(cors({origin: "*"}));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
 app.use(fileUpload({
     useTempFiles: true
 }));

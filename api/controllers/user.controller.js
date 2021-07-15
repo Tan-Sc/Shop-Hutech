@@ -1,6 +1,6 @@
 const User = require('../models/users.model');
-// const sgMail = require('@sendgrid/mail')
-const {sendMail} = require('../Email/mailer');
+//  const sgMail = require('@sendgrid/mail')
+ const {sendMail} = require('../Email/mailer');
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY)  
 const Checkout = require('../models/checkout.model');
 const bcrypt = require('bcrypt');
@@ -159,95 +159,88 @@ module.exports.history = async (req, res) => {
         return res.status(500).json({ msg: error.message })
     }
 }
-// module.exports.forgotPassword = async (req, res) => {
-//     try {
-//         const { email } = req.body;
-//         const user = await User.findOne({ email: email })
-//         console.log(user);
-//         if (!user || user.role === 1) return res.status(400).json({ msg: "this email does not exists" });
-//         const activationtoken = activationToken({ id: user._id })
-//         const sendMail = {
-//             to: user.email,
-//             from: process.env.MAIL,
-//             subject: 'Reset Password for this email',
-//             text: 'and easy to do anywhere, even with Node.js',
-//             html: `<a='href'>${process.env.CLIENT_URL}/user/reset/${activationtoken}</a>`,
-//         };
-//         sgMail.send(sendMail);
-//         return res.status(200).json({ msg: "please check your email" });
-//     } catch (error) {
-//         return res.status(500).json({ msg: error.message })
-//     }
-// }
-
-
-// module.exports.resetPassword = async (req, res, next) => {
-//     try {
-//         const { verify } = req.params;
-//         const { password } = req.body
-//         if (!verify) return res.status(400).json({ msg: "Invalid Authentication" });
-//         if (password.length < 6) return res.status(400).json({ msg: 'Password it at least 6 character long' });
-//         jwt.verify(verify, process.env.ACTIVATION_TOKEN_SCERET, async (err, user) => {
-//             if (!user) {
-//                 return res.status(400).json({ msg: err.name })
-//             }
-//             const passwordHash = await bcrypt.hash(password, 10);
-//             await User.findByIdAndUpdate({ _id: user.id }, { password: passwordHash })
-//             return res.status(200).json({ msg: "Change password successfully. Please login to continue" });
-//             next();
-//         })
-//     } catch (error) {
-//         return res.status(500).json({ msg: error })
-//     }
-// }
-
-
 
 module.exports.forgotPassword = async (req, res) => {
-    const { username } = req.query
-    const isEmail = RegEx.email.test(username);
-    const where = isEmail
-      ? {
-          email: username,
-        }
-      : {
-          username: username,
+    try {
+        const { email } = req.body;
+        const user = await User.findOne({ email: email })
+        console.log(user);
+        if (!user || user.role === 1) return res.status(400).json({ msg: "this email does not exists" });
+        const activationtoken = activationToken({ id: user._id })
+        const sendMail = {
+            to: user.email,
+            from: process.env.MAIL,
+            subject: 'Reset Password for this email',
+            text: 'and easy to do anywhere, even with Node.js',
+            html: `<a='href'>${process.env.CLIENT_URL}/user/reset/${activationtoken}</a>`,
         };
-    const users = await getRepository(User).find({
-      where: where,
-    });
-    // return res.json(users);
-    res.render('/forget', {
-      user: users,
-    //   layout: 'layouts/auth-layout',
-      msg: undefined,
-    });
-  }
-
-
-  module.exports.resetPassword = async (req , res) =>{
-    const { token } = req.query 
-    const decoded = extractJWT(token);
-    const reqResetPass = new ResetPassDTO(req.body);
-    const error = validateSync(reqResetPass);
-    if (error.length > 0) {
-      return res.render('/reset/:verify', {
-        token: token,
-        layout: 'layouts/auth-layout',
-        msg: validateError(error),
-      });
-    } else {
-      await getRepository(User).update(decoded.uid, {
-        password: bcrypt.hashSync(req.body.password, 12),
-      });
-      infoLog(req, 'Reset password success');
-      return res.render('/login', {
-        // layout: 'layouts/auth-layout',
-        success: 'Reset password successful',
-        error: undefined,
-      });
+        sgMail.send(sendMail);
+        return res.status(200).json({ msg: "please check your email" });
+    } catch (error) {
+        return res.status(500).json({ msg: error.message })
     }
-  }
+}
+
+
+
+module.exports.resetPassword = async (req, res, next) => {
+    try {
+        const { verify } = req.params;
+        const { password } = req.body
+        if (!verify) return res.status(400).json({ msg: "Invalid Authentication" });
+        if (password.length < 6) return res.status(400).json({ msg: 'Password it at least 6 character long' });
+        jwt.verify(verify, process.env.ACTIVATION_TOKEN_SCERET, async (err, user) => {
+            if (!user) {
+                return res.status(400).json({ msg: err.name })
+            }
+            const passwordHash = await bcrypt.hash(password, 10);
+            await User.findByIdAndUpdate({ _id: user.id }, { password: passwordHash })
+            return res.status(200).json({ msg: "Change password successfully. Please login to continue" });
+            next();
+        })
+    } catch (error) {
+        return res.status(500).json({ msg: error })
+    }
+}
+
+// module.exports.sendResetLink = async (req,res) => {
+//     const { email } = req.query 
+//     const user = await getRepository(User).findOne({
+//       email: email,
+//     });
+//     const token = signJWT({uid});
+//     sendMail(email, token);
+//     infoLog(req, `Send reset password link to email ${email}`);
+//     return res.render('/forget', {
+//     //   layout: 'layouts/auth-layout',
+//       user: [],
+//       msg: Message.SEND_SUCCESS,
+//     });
+//   }
+
+// module.exports.forgotPassword = async (req, res) => {
+//     const { username } = req.query
+//     const isEmail = RegEx.email.test(username);
+//     const where = isEmail
+//       ? {
+//           email: username,
+//         }
+//       : {
+//           username: username,
+//         };
+//     const users = await getRepository(User).find({
+//       where: where,
+//     });
+//     // return res.status(400).json({ msg: err.name })
+//     // return res.json(users);  
+//     res.render('/forget', {
+//       user: users,
+//     //   layout: 'layouts/auth-layout',
+//       msg: undefined,
+//     });
+//   }
+
+
 
 
   
