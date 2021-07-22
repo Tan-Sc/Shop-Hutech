@@ -35,12 +35,14 @@ module.exports.createCheckout = async (req, res) => {
         const x = await Product.findOne({ _id: item._id });
         await Product.findOneAndUpdate({ _id: item._id }, {
             sold: x.sold + item.count,
-            // quantity: x.quantity - item.count,
+            quantity: x.quantity - item.count,
         });
     })
+
     await newCheckout.save();
     res.json({ newCheckout })
 }
+
 module.exports.updateCheckout = async (req, res) => {
     try {
         const x = await Checkout.findById({ _id: req.params.id });
@@ -71,7 +73,7 @@ module.exports.deleteCheckout = async (req, res) => {
             const y = await Product.findOne({ _id: item._id });
             await Product.findOneAndUpdate({ _id: item._id }, {
                 sold: y.sold - item.count,
-                // quantity: y.quantity + item.count,
+                quantity: y.quantity + item.count,
             });
         })
         await Checkout.findByIdAndDelete({ _id: req.params.id });

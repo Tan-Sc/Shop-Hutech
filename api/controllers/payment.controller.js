@@ -35,10 +35,11 @@ module.exports.createPayment = async (req, res) => {
             const x = await Product.findOne({ _id: item._id });
             await Product.findOneAndUpdate({ _id: item._id }, {
                 sold: x.sold + item.count,
-                // quantity: x.quantity - item.count,
+                quantity: x.quantity - item.count,
             });
         })
         await newPayment.save()
+        // res.json({ newPayment })
         res.json({ msg: "payment success" });
     } catch (error) {
         res.status(500).json('err')

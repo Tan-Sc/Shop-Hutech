@@ -181,8 +181,6 @@ module.exports.forgotPassword = async (req, res) => {
     }
 }
 
-
-
 module.exports.resetPassword = async (req, res, next) => {
     try {
         const { verify } = req.params;
@@ -241,9 +239,6 @@ module.exports.resetPassword = async (req, res, next) => {
 //   }
 
 
-
-
-  
 module.exports.changeAccount = async (req, res) => {
     try {
         const user = req.params;
