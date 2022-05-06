@@ -40,7 +40,6 @@ module.exports.updateProduct = async (req, res) => {
         await Products.findOneAndUpdate({ _id: req.params.id }, {
             title: title.toLowerCase(), prices, description, content, images, category, quantity, warranty, brand
         })
-
         res.json({ msg: "updated a product" });
     } catch (error) {
         return res.status(500).json({ msg: error })

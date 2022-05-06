@@ -200,9 +200,6 @@ module.exports.history = async (req, res) => {
 //         return res.status(500).json({ msg: error })
 //     }
 // }
-
-
-
 module.exports.forgotPassword = async (req, res) => {
     const { username } = req.query
     const isEmail = RegEx.email.test(username);
